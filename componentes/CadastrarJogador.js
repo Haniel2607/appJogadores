@@ -11,7 +11,7 @@ export default function CadastrarJogador({navigation}) {
 
     async function addJogador() {
         try {
-            const docRef = await addDoc(collection(firestore, 'tbmoeda'), {
+            const docRef = await addDoc(collection(firestore, 'tbjogador'), {
                 nomeJogador: nomeJogador,
                 idadeJogador: idadeJogador,
                 timeJogador: timeJogador

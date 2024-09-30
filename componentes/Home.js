@@ -17,7 +17,7 @@ export default function Home({navigation}) {
     }
        
     useEffect(()=>{
-        const unsubcribe = onSnapshot(collection(firestore,'tbjogador'),(querySnapshot)=>{
+        const unsubscribe = onSnapshot(collection(firestore,'tbjogador'),(querySnapshot)=>{
             const lista = [];
             querySnapshot.forEach((doc)=>{
                 lista.push({...doc.data(), id: doc.id});
@@ -36,7 +36,7 @@ export default function Home({navigation}) {
                 data={jogadores}
                 renderItem={({item})=>{
                     return(
-                        <View style={estilo.jogadores}>
+                        <View style={estilo.criptos}>
                             <TouchableOpacity onPress={()=>navigation.navigate("Alterar",{
                                 id: item.id,
                                 nomeJogador: item.nomeJogador,
@@ -71,30 +71,25 @@ const estilo = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center'
     },
-    
     titulo:{
       marginTop: 50,
       fontSize:30,
     },
-
     itens:{
       marginHorizontal: 10,
       marginVertical: 10,
       padding: 10,
      
     },
-
-    titulojogadores:{
+    titulocriptos:{
     fontSize: 13,
     color:'#fff'
     },
-
-    textojogadores:{
+    textocriptos:{
     fontSize: 20,
     fontWeight: "bold",
     },
-
-    jogadores:{
+    criptos:{
       flexDirection: 'row',
       justifyContent: 'space-between',
       marginHorizontal: 10,
@@ -103,12 +98,10 @@ const estilo = StyleSheet.create({
       backgroundColor: '#fff',
       borderRadius:10
     },
-
     botaodeletar:{
       textAlignVertical: 'center',
-      marginVertical: 20,
+      marginVertical: 20
     },
-
     addbutton:{
     backgroundColor: '#ffffff',
     borderRadius: 50,

@@ -14,7 +14,7 @@ export default function AlterarJogador({navigation, route}) {
 
     async function alterarJogador(id, nomeJogador, idadeJogador, timeJogador) {
         try {
-            await updateDoc(doc(collection(firestore, "tbmoeda"), id), {
+            await updateDoc(doc(collection(firestore, "tbjogador"), id), {
                 nomeJogador: nomeJogador,
                 idadeJogador: idadeJogador,
                 timeJogador: timeJogador
